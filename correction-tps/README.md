@@ -50,6 +50,9 @@ Pour la correction, j'ai choisi la troisieme option :
 ng generate component game-list
 ng g c game-list/game-list-filter -s --flat
 ## il est possible aussi d'utiliser un outil graphique comme celui intégré a vscode.
+
+## Installation de bootstrap (avec surcouche angular).
+ng add @ng-bootstrap/ng-bootstrap
 ```
 
 
