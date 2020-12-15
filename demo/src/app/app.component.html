@@ -1,0 +1,33 @@
+<div class="app-component">
+  <h1>Mon composant app - {{ title }}</h1>
+
+  <p>
+    Déjà {{ nb }} utilisateurs inscrits.
+
+    <br>
+    Bravo à notre {{ nb }} ième inscrit !
+  </p>
+
+  <ng-template #unnammed>
+    <p>
+      Salut tout le monde !
+    </p>
+  </ng-template>
+
+  <!-- <p [hidden]="firstname"> -->
+  <p *ngIf="firstname; else unnammed">
+    Salut {{ firstname }} !
+  </p>
+
+  <hr>
+
+  <p class="other">
+    Bonjour {{ msg() }}
+  </p>
+
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus rerum voluptas molestiae doloremque nulla, qui modi facilis tempora quod ratione ad, sit dolores adipisci veniam delectus tenetur quidem natus. Dolorem.
+  </p>
+
+  <app-todo-list></app-todo-list>
+</div>

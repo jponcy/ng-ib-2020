@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+// @mixin border-radius($size) {
+//   -webkit-border-radius: $size;
+//      -moz-border-radius: $size;
+//       -ms-border-radius: $size;
+//        -o-border-radius: $size;
+//           border-radius: $size;
+// }
+
+// button {
+//   border: 1px solid black;
+//   @include border-radius(15px);
+// }
+
+// a.primary {
+//   @include border-radius(25%);
+// }
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
