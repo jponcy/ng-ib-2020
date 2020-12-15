@@ -1,27 +1,59 @@
-# CorrectionTps
+Correction TPs
+==============
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+Explications additionels des corrections
+-----------------------------------------
 
-## Development server
+### IHM
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Organisations possibles pour nos deux composants :
+1. creation de base
+app
+  game-list
+    game-list.component.ts
+    game-list.component.html
+    game-list.component.scss
+    game-list.component.spec.ts
+  game-list-filter
+    game-list-filter.component.ts
+    game-list-filter.component.html
+    game-list-filter.component.scss
+    game-list-filter.component.spec.ts
 
-## Code scaffolding
+1. filter en tant que sous composant de list (sous repertoire)
+app
+  game-list
+    game-list.component.ts
+    game-list.component.html
+    game-list.component.scss
+    game-list.component.spec.ts
+    game-list-filter
+      game-list-filter.component.ts
+      game-list-filter.component.html
+      game-list-filter.component.scss
+      game-list-filter.component.spec.ts
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. sous-repertoire + flat + -s
+app
+  game-list
+    game-list.component.ts
+    game-list.component.html
+    game-list.component.scss
+    game-list.component.spec.ts
+    game-list-filter.component.ts
+    game-list-filter.component.html
+    game-list-filter.component.spec.ts
 
-## Build
+Il y a bien plus de possibilites d'organisation que ça (example : https://www.jhipster.tech/using-angular/).
+Pour la correction, j'ai choisi la troisieme option :
+```bash
+ng generate component game-list
+ng g c game-list/game-list-filter -s --flat
+## il est possible aussi d'utiliser un outil graphique comme celui intégré a vscode.
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+Liens utiles
+------------
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Emmet (création rapide de contenu HTML) : https://emmet.io/

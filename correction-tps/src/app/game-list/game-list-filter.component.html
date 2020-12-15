@@ -1,1 +1,29 @@
-<p>game-list-filter works!</p>
+<form>
+  <div>
+    <label for="game_name">Name</label>
+    <input type="text" id="game_name">
+  </div>
+
+  <div>
+    <label for="game_genre">Genre</label>
+    <select type="text" id="game_genre">
+      <option value="">Aucun</option>
+      <option>RPG</option>
+      <option>FPS</option>
+      <option>RTS</option>
+      <option>Jeu de plateforme</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="game_editor">Editor</label>
+    <input type="text" id="game_editor">
+  </div>
+
+  <div class="actions">
+    <input type="submit" value="filtrer">
+    <input type="reset" value="RAZ">
+  </div>
+</form>
+
+<!-- Exemple emmet : section>article*3>h1{Titre n°$}+p>lorem*2 -->
