@@ -56,4 +56,10 @@ ng g c game-list/game-list-filter -s --flat
 Liens utiles
 ------------
 
-Emmet (création rapide de contenu HTML) : https://emmet.io/
+* Emmet (création rapide de contenu HTML) : https://emmet.io/
+
+### CSS
+
+* Flexbox : https://www.alsacreations.com/tuto/lire/1493-css3-flexbox-layout-module.html
+* Grid layout : https://www.w3schools.com/css/css_grid.asp
+* Media query : https://www.alsacreations.com/article/lire/930-css3-media-queries.html
