@@ -1,0 +1,13 @@
+input[type="checkbox"] {
+  width:  20px;
+  height: 20px;
+}
+
+td>input { margin: auto; }
+
+tr>th:nth-child(-n+2),
+tr>td:nth-child(-n+2) { max-width: 100px; }
+tr>th:first-of-type,
+tr>td:first-of-type   { width: 50px; }
+tr>th:nth-child(2),
+tr>td:nth-child(2)    { width: 70px; }
