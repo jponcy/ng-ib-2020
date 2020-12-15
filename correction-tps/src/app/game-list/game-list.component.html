@@ -4,32 +4,35 @@
 
 <hr>
 
-<section>
-  <article *ngFor="let game of games">
-    <header>
-      <div>
-        <h1>{{ game.name }}</h1>
-        <p>
-          {{ game.genre }}
+<!-- Cards en bootstrap : https://getbootstrap.com/docs/4.0/components/card/#card-groups -->
+<section class="card-deck">
+  <article class="card col-md-6 col-lg-4 col-xl-3 col-xxl-2" *ngFor="let game of games">
+    <header class="card-header bg-transparent">
+        <p class="float-right text-right">
+          <!-- {{ game.note }}/10 -->
+          <ngb-rating max="10" [rate]="game.note"></ngb-rating>
         </p>
-      </div>
 
-      <p>
-        {{ game.note }}/10
-      </p>
+        <div class="col">
+          <h1 class="card-title">{{ game.name }}</h1>
+          <small>
+            {{ game.genre }}
+          </small>
+        </div>
     </header>
 
-    <main>
-      <img [src]="game.coverImg" [alt]="coverImgAlt(game)">
-      <p>
+    <img class="card-img-top" [src]="game.coverImg" [alt]="coverImgAlt(game)">
+
+    <main class="card-body">
+      <p class="card-text">
         {{ description(game) }}
       </p>
     </main>
 
-    <footer>
-      <button>follow</button>
-      <button>share</button>
-      <button>buy</button>
+    <footer class="card-footer bg-transparent">
+      <button class="btn card-link">follow</button>
+      <button class="btn card-link">share</button>
+      <button class="btn card-link">buy</button>
     </footer>
   </article>
 </section>

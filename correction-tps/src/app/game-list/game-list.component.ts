@@ -73,7 +73,7 @@ export class GameListComponent implements OnInit {
     const words = game.description.split(/\s+/);
 
     if (words.length > 20) {
-      result = words.slice(0, 20).join(' ') + '...';
+      result = words.slice(0, 21).join(' ') + '...';
 
       // result = '';
 
