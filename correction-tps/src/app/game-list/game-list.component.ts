@@ -63,4 +63,33 @@ export class GameListComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  coverImgAlt(game: Game): string {
+    return 'Cover image of' + game.name;
+  }
+
+  description(game: Game): string {
+    let result: string = null;
+    const words = game.description.split(/\s+/);
+
+    if (words.length > 20) {
+      result = words.slice(0, 20).join(' ') + '...';
+
+      // result = '';
+
+      // for (let i = 0; i < 20; ++i) {
+      //   if (result) {
+      //     result += ' ';
+      //   }
+
+      //   result += words[i];
+      // }
+
+      // result += '...';
+    } else {
+      result = game.description;
+    }
+
+    return result;
+  }
 }

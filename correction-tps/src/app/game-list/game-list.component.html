@@ -1,56 +1,28 @@
 <h1>Available games</h1>
 
-
 <app-game-list-filter></app-game-list-filter>
+
 <hr>
 
 <section>
-  <article>
+  <article *ngFor="let game of games">
     <header>
       <div>
-        <h1>{{ games[0].name }}</h1>
+        <h1>{{ game.name }}</h1>
         <p>
-          {{ games[0].genre }}
+          {{ game.genre }}
         </p>
       </div>
 
       <p>
-        {{ games[0].note }}/10
+        {{ game.note }}/10
       </p>
     </header>
 
     <main>
-      <img src="{{ games[0].coverImg }}" alt="Cover image of {{ games[0].name }}">
+      <img [src]="game.coverImg" [alt]="coverImgAlt(game)">
       <p>
-        {{ games[0].description }}
-      </p>
-    </main>
-
-    <footer>
-      <button>follow</button>
-      <button>share</button>
-      <button>buy</button>
-    </footer>
-  </article>
-
-  <article>
-    <header>
-      <div>
-        <h1>{{ games[1].name }}</h1>
-        <p>
-          {{ games[1].genre }}
-        </p>
-      </div>
-
-      <p>
-        {{ games[1].note }}/10
-      </p>
-    </header>
-
-    <main>
-      <img src="{{ games[1].coverImg }}" alt="Cover image of {{ games[1].name }}">
-      <p>
-        {{ games[1].description }}
+        {{ description(game) }}
       </p>
     </main>
 
