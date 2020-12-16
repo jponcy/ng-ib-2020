@@ -11,13 +11,7 @@ export class GameListActionsComponent implements OnInit {
   // game: Game;
 
   @Output()
-  follow = new EventEmitter<void>();
-
-  @Output()
-  share = new EventEmitter<void>();
-
-  @Output()
-  buy = new EventEmitter<void>();
+  actionClick = new EventEmitter<string>();
 
   constructor() { }
 
@@ -25,14 +19,14 @@ export class GameListActionsComponent implements OnInit {
   }
 
   onFollow(): void {
-    this.follow.emit();
+    this.actionClick.emit('follow');
   }
 
   onShare(): void {
-    this.share.emit();
+    this.actionClick.emit('share');
   }
 
   onBuy(): void {
-    this.buy.emit();
+    this.actionClick.emit('buy');
   }
 }

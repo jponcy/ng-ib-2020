@@ -31,9 +31,7 @@
 
     <footer class="card-footer bg-transparent">
       <app-game-list-actions
-        (follow)="onFollow(game)"
-        (share)="onShare(game)"
-        (buy)="onBuy(game)"
+        (actionClick)="onActionClick($event, game)"
       ></app-game-list-actions>
     </footer>
   </article>

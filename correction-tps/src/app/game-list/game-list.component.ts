@@ -85,16 +85,23 @@ export class GameListComponent implements OnInit {
     return result;
   }
 
-  onFollow(game: Game): void {
+  onActionClick(actionType: string, game: Game): void {
     // window.alert('User \'follow\' ' + game.name);
-    window.alert(`User 'follow' ${game.name}`);
-  }
+    window.alert(`User '${actionType}' ${game.name}`);
 
-  onShare(game: Game): void {
-    window.alert(`User 'share' ${game.name}`);
-  }
-
-  onBuy(game: Game): void {
-    window.alert(`User 'buy' ${game.name}`);
+    // switch (actionType) {
+    //   case 'follow':
+    //     // Follow process.
+    //     break;
+    //   case 'share':
+    //     // Share process.
+    //     break;
+    //   case 'buy':
+    //     // Buy process.
+    //     break;
+    //   default:
+    //     console.error(`The action type nammed ${actionType} is not managed`);
+    //     break;
+    // }
   }
 }
