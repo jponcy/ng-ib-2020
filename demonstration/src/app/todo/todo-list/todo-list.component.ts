@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-interface Todo {
-  name: string;
-  finished: boolean;
-}
+import { Todo } from '../models';
 
 @Component({
   selector: 'app-todo-list',
@@ -28,4 +25,11 @@ export class TodoListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onLabelClick(todo: Todo): void {
+    window.alert('On a cliqué sur ' + todo.name);
+  }
+
+  onTodoCreate(todo: Todo): void {
+    this.todos.push(todo);
+  }
 }

@@ -1,5 +1,5 @@
 <div class="row">
-  <app-todo-form class="col-md order-md-2 col-lg-3 col-xl-2"></app-todo-form>
+  <app-todo-form class="col-md order-md-2 col-lg-3 col-xl-2" (create)="onTodoCreate($event)"></app-todo-form>
 
   <!-- <table class="table table-sm table-striped table-hover table-dark"> -->
   <table class="table table-striped table-sm col">
@@ -12,21 +12,25 @@
     </thead>
 
     <tbody>
-      <tr *ngFor="let todo of todos; index as i">
-        <td class="text-right">{{ i + 1 }}</td>
-        <td class="center">
-          <!-- L'exemple suivant coche toujours la case a cocher. -->
-          <!-- <input type="checkbox" checked="{{ todo.finished }}"> -->
+      <ng-container *ngFor="let todo of todos; index as i">
+        <!-- <tr *ngIf="todo.finished === false"> -->
+        <tr>
+          <td class="text-right">{{ i + 1 }}</td>
+          <td class="center">
+            <!-- L'exemple suivant coche toujours la case a cocher. -->
+            <!-- <input type="checkbox" checked="{{ todo.finished }}"> -->
 
-          <!-- On pourrait resoudre ce soucis avec un *ngIf. -->
-          <!-- <input type="checkbox" checked="checked" *ngIf="todo.finished">
-          <input type="checkbox" *ngIf="!todo.finished"> -->
+            <!-- On pourrait resoudre ce soucis avec un *ngIf. -->
+            <!-- <input type="checkbox" checked="checked" *ngIf="todo.finished">
+            <input type="checkbox" *ngIf="!todo.finished"> -->
 
-          <!-- La bonne facon etait en faite de faire un lien de proprite a la place d'une interpollation. -->
-          <input type="checkbox" [checked]="todo.finished" class="form-control">
-        </td>
-        <td>{{ todo.name }}</td>
-      </tr>
+            <!-- La bonne facon etait en faite de faire un lien de proprite a la place d'une interpollation. -->
+            <input type="checkbox" (change)="todo.finished = !todo.finished" [checked]="todo.finished" class="form-control">
+            <!-- <input type="checkbox" (change)="onFinishedChange(todo)" [checked]="todo.finished" class="form-control"> -->
+          </td>
+          <td (click)="onLabelClick(todo)">{{ todo.name }}</td>
+        </tr>
+      </ng-container>
     </tbody>
   </table>
 </div>

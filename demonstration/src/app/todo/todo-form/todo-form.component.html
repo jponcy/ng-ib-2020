@@ -1,6 +1,24 @@
-<form>
-  <div class="mb-3">
+<form (submit)="onSubmit($event)">
+  <div class="mb-3" *ngIf="hasName">
     <label for="name" class="form-label">Nom de la tâche</label>
-    <input type="text" class="form-control" id="name">
+    <input type="text" class="form-control" id="name" (keyup)="onChange('name', $event.target.value)" [value]="tempTodo.name" required>
+    <!-- On peut utiliser l'événement (change) comme sur les autre champs, mais il ne sera émit que sur blur (perte du focus du champ). -->
+    <!-- Autre possibilite pour avoir la nouvelle donnee de suite (sans attendre la perte de focus) (keyup)="onChange('name', $event)" -->
+  </div>
+
+  <div class="form-check mb-3" *ngIf="hasFinished">
+    <input class="form-check-input" type="checkbox" id="finished" (change)="onFinishedChange($event.target.checked)" [checked]="tempTodo.finished">
+    <label class="form-check-label" for="finished">
+      Tâche finie ?
+    </label>
+  </div>
+
+  <div class="mb-3" *ngIf="hasEndedAt">
+    <label for="endedAt">Date limite</label>
+    <input type="datetime-local" id="endedAt" (change)="onChange('endedAt', $event.target.value)" [value]="tempTodo.endedAt">
+  </div>
+
+  <div class="actions">
+    <button type="submit" class="btn btn-primary">Créer</button>
   </div>
 </form>
