@@ -92,4 +92,17 @@ export class GameListComponent implements OnInit {
 
     return result;
   }
+
+  onFollow(game: Game): void {
+    // window.alert('User \'follow\' ' + game.name);
+    window.alert(`User 'follow' ${game.name}`);
+  }
+
+  onShare(game: Game): void {
+    window.alert(`User 'share' ${game.name}`);
+  }
+
+  onBuy(game: Game): void {
+    window.alert(`User 'buy' ${game.name}`);
+  }
 }
