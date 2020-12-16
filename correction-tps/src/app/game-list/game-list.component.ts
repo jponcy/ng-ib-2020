@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Game } from './models';
+
+import { Game, GameListActions } from './models';
 
 @Component({
   selector: 'app-game-list',
@@ -85,7 +86,7 @@ export class GameListComponent implements OnInit {
     return result;
   }
 
-  onActionClick(actionType: string, game: Game): void {
+  onActionClick(actionType: GameListActions, game: Game): void {
     // window.alert('User \'follow\' ' + game.name);
     window.alert(`User '${actionType}' ${game.name}`);
 

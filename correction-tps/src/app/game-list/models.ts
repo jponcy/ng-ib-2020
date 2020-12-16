@@ -6,3 +6,7 @@ export interface Game {
   description: string;
   note: number;
 }
+
+export enum GameListActions {
+  FOLLOW = 'follow', SHARE = 'share', BUY = 'buy'
+}

@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
+import { GameListActions } from '../models';
+
 @Component({
   selector: 'app-game-list-actions',
   templateUrl: './game-list-actions.component.html',
@@ -11,7 +13,7 @@ export class GameListActionsComponent implements OnInit {
   // game: Game;
 
   @Output()
-  actionClick = new EventEmitter<string>();
+  actionClick = new EventEmitter<GameListActions>();
 
   constructor() { }
 
@@ -19,14 +21,14 @@ export class GameListActionsComponent implements OnInit {
   }
 
   onFollow(): void {
-    this.actionClick.emit('follow');
+    this.actionClick.emit(GameListActions.FOLLOW);
   }
 
   onShare(): void {
-    this.actionClick.emit('share');
+    this.actionClick.emit(GameListActions.SHARE);
   }
 
   onBuy(): void {
-    this.actionClick.emit('buy');
+    this.actionClick.emit(GameListActions.BUY);
   }
 }
