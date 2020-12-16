@@ -8,6 +8,8 @@
   justify-content: center;
 }
 
+.card:hover { border: 1px solid black; }
+
 .card>img {
   position: relative;
   left: -15px;
