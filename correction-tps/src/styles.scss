@@ -7,3 +7,19 @@
   display: flex;
   justify-content: center;
 }
+
+.card>img {
+  position: relative;
+  left: -15px;
+  width: calc(100% + 30px);
+}
+
+.card-header { padding: 0; }
+
+.card-header h1 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.card-footer button { text-transform: uppercase; }

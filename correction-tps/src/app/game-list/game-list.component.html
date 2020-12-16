@@ -30,9 +30,11 @@
     </main>
 
     <footer class="card-footer bg-transparent">
-      <button (click)="onFollow(game)" class="btn card-link">follow</button>
-      <button (click)="onShare(game)"  class="btn card-link">share</button>
-      <button (click)="onBuy(game)"    class="btn card-link">buy</button>
+      <app-game-list-actions
+        (follow)="onFollow(game)"
+        (share)="onShare(game)"
+        (buy)="onBuy(game)"
+      ></app-game-list-actions>
     </footer>
   </article>
 </section>

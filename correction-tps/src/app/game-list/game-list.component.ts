@@ -1,13 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-interface Game {
-  name: string;
-  genre: string;
-  coverImg: string;
-  editor: string;
-  description: string;
-  note: number;
-}
+import { Game } from './models';
 
 @Component({
   selector: 'app-game-list',
