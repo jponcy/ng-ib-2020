@@ -10,3 +10,9 @@ export interface Game {
 export enum GameListActions {
   FOLLOW = 'follow', SHARE = 'share', BUY = 'buy'
 }
+
+export interface GameListFilter {
+  name: string;
+  genre: string;
+  editor: string;
+}

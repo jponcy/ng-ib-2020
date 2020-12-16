@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Game, GameListActions } from './models';
+import { Game, GameListActions, GameListFilter } from './models';
 
 @Component({
   selector: 'app-game-list',
@@ -9,9 +9,9 @@ import { Game, GameListActions } from './models';
 })
 export class GameListComponent implements OnInit {
 
-  games: Game[] = [{
+  private games: Game[] = [{
     name: 'BattleBlock Theater',
-    genre: 'Jeu de platform multijoueur',
+    genre: 'Jeu de plateforme multijoueur',
     coverImg: 'https://steamcdn-a.akamaihd.net/steam/apps/238460/header.jpg?t=1599169670',
     editor: 'The Behemoth',
     description: `
@@ -51,6 +51,8 @@ export class GameListComponent implements OnInit {
     `,
     note: 8.7
   }];
+
+  filteredGames = this.games;
 
   constructor() { }
 
@@ -104,5 +106,22 @@ export class GameListComponent implements OnInit {
     //     console.error(`The action type nammed ${actionType} is not managed`);
     //     break;
     // }
+  }
+
+  onFilter(filter: GameListFilter): void {
+    const games = [];
+
+    for (const g of this.games) {
+      // Pas besoin de tester si un filtre est renseigne pour name/editor
+      // car le sous-composant renvoit au pire une chaine vide.
+      // if (!filter.name || g.name.includes(filter.name)) {
+      if (g.name.toLowerCase().includes(filter.name)
+          && (!filter.genre || g.genre.includes(filter.genre))
+          && g.editor.toLowerCase().includes(filter.editor)) {
+        games.push(g);
+      }
+    }
+
+    this.filteredGames = games;
   }
 }
