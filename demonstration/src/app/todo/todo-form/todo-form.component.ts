@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { fakeAsync } from '@angular/core/testing';
+
 import { Todo } from '../models';
 
+/** Implementation manuelle du formulaire. */
 @Component({
   selector: 'app-todo-form',
   templateUrl: './todo-form.component.html',
@@ -32,6 +33,7 @@ export class TodoFormComponent implements OnInit {
   onSubmit(event: Event): void {
     event.preventDefault();
 
+    // TODO: Implement creation using API!
     this.create.emit(this.tempTodo);
     this.tempTodo = { name: null, finished: false, endedAt: null };
   }

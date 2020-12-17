@@ -1,0 +1,32 @@
+<form (submit)="onSubmit($event)" [formGroup]="form">
+  <div class="mb-3">
+    <label for="name" class="form-label">Nom de la tâche</label>
+    <input type="text" class="form-control" id="name" formControlName="name">
+
+    <ng-container *ngIf="name.touched && name.invalid">
+      <div class="text text-danger" *ngIf="name.hasError('required')">
+        Ce champ est requis, merci de saisir le nom de la tâche.
+      </div>
+
+      <div class="text text-danger" *ngIf="name.hasError('minlength')">
+        Merci de saisir un nom d'au moins {{ name.errors.minlength.requiredLength }} caractères !
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="form-check mb-3">
+    <input class="form-check-input" type="checkbox" id="finished" formControlName="finished">
+    <label class="form-check-label" for="finished">
+      Tâche finie ?
+    </label>
+  </div>
+
+  <div class="mb-3">
+    <label for="endedAt">Date limite</label>
+    <input type="datetime-local" id="endedAt" formControlName="endedAt">
+  </div>
+
+  <div class="actions">
+    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Créer</button>
+  </div>
+</form>
