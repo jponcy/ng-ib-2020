@@ -38,6 +38,6 @@ export class TodoFormReactiveComponent {
     event.preventDefault();
 
     this.create.emit(this.form.value);
-    this.form.patchValue({ name: null, finished: false, endedAt: null });
+    this.form.reset({ name: null, finished: false, endedAt: null });
   }
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
+import { GameFormComponent } from './form/game-form.component';
 import { Game, GameListActions, GameListFilter } from './models';
 
 @Component({
@@ -10,6 +12,7 @@ import { Game, GameListActions, GameListFilter } from './models';
 export class GameListComponent implements OnInit {
 
   private games: Game[] = [{
+    id: 1,
     name: 'BattleBlock Theater',
     genre: 'Jeu de plateforme multijoueur',
     coverImg: 'https://steamcdn-a.akamaihd.net/steam/apps/238460/header.jpg?t=1599169670',
@@ -29,6 +32,7 @@ export class GameListComponent implements OnInit {
     `,
     note: 9.8
   }, {
+    id: 2,
     name: 'Castle Crashers®',
     genre: 'action',
     coverImg: 'https://steamcdn-a.akamaihd.net/steam/apps/204360/header.jpg?t=1600880882',
@@ -52,11 +56,50 @@ export class GameListComponent implements OnInit {
     note: 8.7
   }];
 
-  filteredGames = this.games;
+  filteredGames = [...this.games];
 
-  constructor() { }
+  constructor(private readonly modalService: NgbModal) { }
 
   ngOnInit(): void {
+  }
+
+  onCreate(): void {
+    this.openCreateGameDialog();
+  }
+
+  private openCreateGameDialog(gameToEdit: Game = null): void {
+    const dialogRef = this.modalService.open(GameFormComponent);
+
+    if (gameToEdit) {
+      dialogRef.componentInstance.setGame(gameToEdit);
+    }
+
+    dialogRef
+        .componentInstance
+        .create
+        .subscribe(game => {
+          if (game.id) {
+            this.editGame(this.games, game);
+            this.editGame(this.filteredGames, game);
+          } else {
+            game.id = this.games.length + 1;
+            this.games.push(game);
+            this.filteredGames.push(game); // On devrait plutot rafraichir le filtre.
+          }
+
+          // Le code ici n'est pas tres realiste, car il manque encore le service d'API pour faire la sauvegarde reelle.
+          dialogRef.close();
+        });
+  }
+
+  private editGame(list: Game[], game: Game): void {
+    const original = list.find(g => g.id === game.id);
+
+    if (original) {
+      list[list.indexOf(original)] = {...game};
+    } else {
+      throw new Error('Impossible to retrieve the data');
+    }
   }
 
   coverImgAlt(game: Game): string {
@@ -65,47 +108,41 @@ export class GameListComponent implements OnInit {
 
   description(game: Game): string {
     let result: string = null;
-    const words = game.description.split(/\s+/);
 
-    if (words.length > 20) {
-      result = words.slice(0, 21).join(' ') + '...';
+    if (game.description) {
+      const words = game.description.split(/\s+/);
 
-      // result = '';
+      if (words.length > 20) {
+        result = words.slice(0, 21).join(' ') + '...';
 
-      // for (let i = 0; i < 20; ++i) {
-      //   if (result) {
-      //     result += ' ';
-      //   }
+        // result = '';
 
-      //   result += words[i];
-      // }
+        // for (let i = 0; i < 20; ++i) {
+        //   if (result) {
+        //     result += ' ';
+        //   }
 
-      // result += '...';
-    } else {
-      result = game.description;
+        //   result += words[i];
+        // }
+
+        // result += '...';
+      } else {
+        result = game.description;
+      }
     }
 
     return result;
   }
 
   onActionClick(actionType: GameListActions, game: Game): void {
-    // window.alert('User \'follow\' ' + game.name);
-    window.alert(`User '${actionType}' ${game.name}`);
-
-    // switch (actionType) {
-    //   case 'follow':
-    //     // Follow process.
-    //     break;
-    //   case 'share':
-    //     // Share process.
-    //     break;
-    //   case 'buy':
-    //     // Buy process.
-    //     break;
-    //   default:
-    //     console.error(`The action type nammed ${actionType} is not managed`);
-    //     break;
-    // }
+    switch (actionType) {
+      case GameListActions.EDIT:
+        this.openCreateGameDialog(game);
+        break;
+      default:
+        window.alert(`User '${actionType}' ${game.name}`);
+        break;
+    }
   }
 
   onFilter(filter: GameListFilter): void {

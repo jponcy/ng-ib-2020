@@ -1,24 +1,32 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-import { GameListComponent } from './game-list/game-list.component';
-import { GameListFilterComponent } from './game-list/filter/game-list-filter.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { GameListActionsComponent } from './game-list/actions/game-list-actions.component';
+import { GameListFilterComponent } from './game-list/filter/game-list-filter.component';
+import { GameFormComponent } from './game-list/form/game-form.component';
+import { GameListComponent } from './game-list/game-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GameListComponent,
     GameListFilterComponent,
-    GameListActionsComponent
+    GameListActionsComponent,
+    GameFormComponent
   ],
   imports: [
     BrowserModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    GameFormComponent
+  ]
 })
 export class AppModule { }

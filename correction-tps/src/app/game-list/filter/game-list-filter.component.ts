@@ -11,28 +11,15 @@ import { GameListFilter } from '../models';
 })
 export class GameListFilterComponent {
 
-  private filterData: GameListFilter = { name: null, genre: null, editor: null };
+  filterData: GameListFilter = { name: null, genre: null, editor: null };
 
   @Output()
   filter = new EventEmitter<GameListFilter>();
 
   constructor() { }
 
-  onSubmit(event: Event): void {
-    event.preventDefault();
+  onSubmit(): void {
     this.emitFilter();
-  }
-
-  onChangeName(name: string): void {
-    this.filterData.name = name;
-  }
-
-  onChangeGenre(genre: string): void {
-    this.filterData.genre = genre;
-  }
-
-  onChangeEditor(editor: string): void {
-    this.filterData.editor = editor;
   }
 
   onReset(): void {

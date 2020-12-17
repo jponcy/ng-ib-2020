@@ -31,4 +31,8 @@ export class GameListActionsComponent implements OnInit {
   onBuy(): void {
     this.actionClick.emit(GameListActions.BUY);
   }
+
+  onEdit(): void {
+    this.actionClick.emit(GameListActions.EDIT);
+  }
 }

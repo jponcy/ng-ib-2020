@@ -1,4 +1,5 @@
 export interface Game {
+  id: number|null;
   name: string;
   genre: string;
   coverImg: string;
@@ -8,7 +9,7 @@ export interface Game {
 }
 
 export enum GameListActions {
-  FOLLOW = 'follow', SHARE = 'share', BUY = 'buy'
+  FOLLOW = 'follow', SHARE = 'share', BUY = 'buy', EDIT = 'edit'
 }
 
 export interface GameListFilter {

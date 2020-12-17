@@ -1,13 +1,14 @@
-<form (submit)="onSubmit($event)">
+<form (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="game_name">Name</label>
-    <input class="form-control" type="text" id="game_name" (change)="onChangeName($event.target.value)">
+    <input class="form-control" type="text" id="game_name" [(ngModel)]="filterData.name" name="name">
   </div>
 
   <div class="form-group">
     <label for="game_genre">Genre</label>
-    <select class="form-control" type="text" id="game_genre" (change)="onChangeGenre($event.target.value)">
+    <select class="form-control" type="text" id="game_genre" [(ngModel)]="filterData.genre" name="genre">
       <option value="">Aucun</option>
+      <option>action</option>
       <option>RPG</option>
       <option>FPS</option>
       <option>RTS</option>
@@ -17,7 +18,7 @@
 
   <div class="form-group">
     <label for="game_editor">Editor</label>
-    <input class="form-control" type="text" id="game_editor" (change)="onChangeEditor($event.target.value)">
+    <input class="form-control" type="text" id="game_editor" [(ngModel)]="filterData.editor" name="editor">
   </div>
 
   <div class="actions">

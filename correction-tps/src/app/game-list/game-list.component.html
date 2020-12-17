@@ -1,5 +1,9 @@
 <h1>Available games</h1>
 
+<button class="btn btn-primary" (click)="onCreate()">Créer un jeu</button>
+
+<!-- <app-todo-form></app-todo-form> -->
+
 <app-game-list-filter (filter)="onFilter($event)"></app-game-list-filter>
 
 <hr>
@@ -8,20 +12,20 @@
 <section class="card-deck">
   <article class="card col-md-6 col-lg-4 col-xl-3 col-xxl-2" *ngFor="let game of filteredGames">
     <header class="card-header bg-transparent">
-        <p class="float-right text-right">
+        <p class="float-right text-right" *ngIf="game.note">
           <!-- {{ game.note }}/10 -->
           <ngb-rating max="10" [rate]="game.note"></ngb-rating>
         </p>
 
         <div class="col">
           <h1 class="card-title">{{ game.name }}</h1>
-          <small>
+          <small *ngIf="game.genre">
             {{ game.genre }}
           </small>
         </div>
     </header>
 
-    <img class="card-img-top" [src]="game.coverImg" [alt]="coverImgAlt(game)">
+    <img class="card-img-top" *ngIf="game.coverImg" [src]="game.coverImg" [alt]="coverImgAlt(game)">
 
     <main class="card-body">
       <p class="card-text">
