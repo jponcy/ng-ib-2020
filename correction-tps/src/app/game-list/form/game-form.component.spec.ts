@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { GameFormComponent } from './game-form.component';
 
@@ -8,7 +9,10 @@ describe('TodoFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GameFormComponent ]
+      declarations: [ GameFormComponent ],
+      imports: [
+        ReactiveFormsModule
+      ]
     })
     .compileComponents();
   });

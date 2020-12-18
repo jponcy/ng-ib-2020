@@ -106,34 +106,6 @@ export class GameListComponent implements OnInit {
     return 'Cover image of' + game.name;
   }
 
-  description(game: Game): string {
-    let result: string = null;
-
-    if (game.description) {
-      const words = game.description.split(/\s+/);
-
-      if (words.length > 20) {
-        result = words.slice(0, 21).join(' ') + '...';
-
-        // result = '';
-
-        // for (let i = 0; i < 20; ++i) {
-        //   if (result) {
-        //     result += ' ';
-        //   }
-
-        //   result += words[i];
-        // }
-
-        // result += '...';
-      } else {
-        result = game.description;
-      }
-    }
-
-    return result;
-  }
-
   onActionClick(actionType: GameListActions, game: Game): void {
     switch (actionType) {
       case GameListActions.EDIT:

@@ -8,6 +8,7 @@ import { GameListActionsComponent } from './game-list/actions/game-list-actions.
 import { GameListFilterComponent } from './game-list/filter/game-list-filter.component';
 import { GameFormComponent } from './game-list/form/game-form.component';
 import { GameListComponent } from './game-list/game-list.component';
+import { PipesModule } from './pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { GameListComponent } from './game-list/game-list.component';
     BrowserModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PipesModule
   ],
   providers: [],
   bootstrap: [AppComponent],

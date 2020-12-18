@@ -29,7 +29,8 @@
 
     <main class="card-body">
       <p class="card-text">
-        {{ description(game) }}
+        <!-- {{ description(game) }} -->
+        {{ game.description | startWords:20 }}
       </p>
     </main>
 

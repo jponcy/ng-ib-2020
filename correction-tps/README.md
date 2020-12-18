@@ -72,3 +72,14 @@ Liens utiles
 ** https://getbootstrap.com/
 ** Grid : https://getbootstrap.com/docs/4.0/layout/grid/
 ** Passage 3 &rarr; 4 : https://getbootstrap.com/docs/4.0/migration/
+
+### Angular
+
+* sous-formulaires (nested form)
+* routing ++ (passage de data)
+* pipes
+* services (tp - plutôt pour ceux qui veulent faire plus que du maquetage/integration)
+* création de modules (intéressant dans une démarche de maîtrise du framework - pas prioritaire)
+* tests unitaires+e2e (intéressant dans une démarche qualité)
+* icons bootstrap
+* intégrer/utiliser angular/material

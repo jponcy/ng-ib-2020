@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 
 import { Game } from '../models';
@@ -41,6 +41,7 @@ export class GameFormComponent {
     return !this.form.controls.id.value;
   }
 
+  @Input('game')
   setGame(game: Game): void {
     this.form.patchValue(game);
   }

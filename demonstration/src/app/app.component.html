@@ -1,0 +1,23 @@
+<header>
+  <nav>
+    <ul>
+      <!-- Traditionnellement en HTML, on utilise href, mais cela provoquerait un rechargement de la page en Angular. -->
+      <!-- <li><a href="/todos">Liste des tâches</a></li> -->
+
+      <!-- Nous allons donc plutot utiliser routerLink. -->
+      <li><a routerLink="todos">Liste des tâches</a></li>
+      <li><a routerLink="tests">Mes premiers pas avec Agular</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <!-- <div class="container"></div>
+  <div class="container-fluid"></div> -->
+
+  <div class="container-fluid">
+    <router-outlet></router-outlet>
+  </div>
+</main>
+
+<footer></footer>
